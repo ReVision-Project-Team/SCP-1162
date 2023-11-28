@@ -1,6 +1,4 @@
-﻿using Exiled.API.Features;
-using Exiled.API.Features.Items;
-using System.Linq;
+﻿using System.Linq;
 using UnityEngine;
 
 namespace SCP1162.Handlers
@@ -9,8 +7,8 @@ namespace SCP1162.Handlers
     {
         public void OnRoundStarted()
         {
-            Room _room = Room.List.FirstOrDefault(x => x.Type == Exiled.API.Enums.RoomType.Lcz173);
-            GameObject scp1162 = Item.Create(ItemType.SCP500).CreatePickup(Vector3.zero).GameObject;
+            Exiled.API.Features.Room _room = Exiled.API.Features.Room.List.FirstOrDefault(x => x.Type == Exiled.API.Enums.RoomType.Lcz173);
+            GameObject scp1162 = Exiled.API.Features.Items.Item.Create(ItemType.SCP500).CreatePickup(Vector3.zero).GameObject;
             scp1162.GetComponent<Rigidbody>().useGravity = false;
             scp1162.GetComponent<Rigidbody>().drag = 0f;
             scp1162.GetComponent<Rigidbody>().collisionDetectionMode = CollisionDetectionMode.Continuous;
