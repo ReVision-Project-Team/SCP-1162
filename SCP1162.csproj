@@ -63,6 +63,7 @@
     <Reference Include="UnityEngine.PhysicsModule" HintPath="$(UNITY_REFERENCES)\UnityEngine.PhysicsModule.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="API\Extensions.cs" />
     <Compile Include="Config.cs" />
     <Compile Include="Handlers\PlayerHandlers.cs" />
     <Compile Include="Handlers\ServerHandlers.cs" />
