@@ -19,11 +19,15 @@ namespace SCP1162.Handlers
                     ev.Player.DisableEffect(EffectType.SeveredHands);
 
                     ev.Player.Health = ev.Player.Health - 30;
+
+                    ev.Player.ShowHint("Вы протинули руку и вытинули случайный предмет");
+                    ev.Player.GiveRandomItem();
                 }
                 else
                 {
                     ev.Player.CurrentItem.Destroy();
-                    ev.Player.ShowHint("");
+                    ev.Player.ShowHint("Вы протинули руку и вытинули случайный предмет");
+                    ev.Player.GiveRandomItem();
                 }
             }
         }
