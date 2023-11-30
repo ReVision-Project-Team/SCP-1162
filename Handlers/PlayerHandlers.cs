@@ -8,7 +8,7 @@ namespace SCP1162.Handlers
     {
         public void OnPickingUpItem(PickingUpItemEventArgs ev)
         {
-            if (ev.Pickup.IsPickup())
+            if (ev.Pickup.GameObject.IsPickup())
             {
                 ev.IsAllowed = false;
                 if (ev.Player.CurrentItem.Type is ItemType.None || ev.Player.CurrentItem is null)

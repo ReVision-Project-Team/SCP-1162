@@ -1,24 +1,23 @@
 ﻿using Exiled.API.Features;
-using Exiled.API.Features.Pickups;
 using Exiled.API.Features.Items;
-using SCP1162;
 using System.Linq;
 using Exiled.API.Extensions;
+using UnityEngine;
 
 namespace SCP1162.API
 {
     public static class Extensions
     {
-        private static Pickup _pickup;
+        private static GameObject _pickup;
 
-        public static bool IsPickup(this Pickup pickup) 
+        public static bool IsPickup(this GameObject pickup) 
         {
             if (pickup != _pickup)
                 return false;
             return true;
         }
-        public static Pickup GetPickup() => _pickup;
-        public static void SetPickup(this Pickup value) => _pickup = value;
+        public static GameObject GetPickup() => _pickup;
+        public static void SetPickup(this GameObject value) => _pickup = value;
 
         public static void GiveRandomItem(this Player player)
         {

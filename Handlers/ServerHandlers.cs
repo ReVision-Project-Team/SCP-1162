@@ -1,5 +1,4 @@
-﻿using Exiled.API.Features.Pickups;
-using SCP1162.API;
+﻿using SCP1162.API;
 using System.Linq;
 using UnityEngine;
 
@@ -25,7 +24,7 @@ namespace SCP1162.Handlers
 
             scp1162.SetActive(true);
 
-            scp1162.GetComponent<Pickup>().SetPickup();
+            scp1162.SetPickup();
         }
     }
 }
