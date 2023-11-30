@@ -22,7 +22,6 @@ namespace Scp1162
             _player = new PlayerHandlers(Config.BannedItems);
 
             Server.RoundStarted += _server.OnRoundStarted;
-
             Player.PickingUpItem += _player.OnPickingUpItem;
 
             base.OnEnabled();
@@ -30,7 +29,6 @@ namespace Scp1162
         public override void OnDisabled()
         {
             Player.PickingUpItem -= _player.OnPickingUpItem;
-
             Server.RoundStarted -= _server.OnRoundStarted;
 
             _player = null;
