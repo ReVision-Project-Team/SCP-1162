@@ -10,13 +10,10 @@ namespace Scp1162
         private PlayerHandlers _player;
 
         public override string Prefix => "Scp1162";
-
         public override string Name => "SCP-1162";
-
         public override string Author => "Timersky & NotAloneAgain";
 
         public override Version Version { get; } = new Version(1, 0, 0);
-
         public override Version RequiredExiledVersion { get; } = new Version(8, 4, 0);
 
         public override void OnEnabled()
