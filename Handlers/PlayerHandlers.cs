@@ -1,35 +1,63 @@
 ﻿using Exiled.API.Enums;
+using Exiled.API.Extensions;
 using Exiled.Events.EventArgs.Player;
-using SCP1162.API;
+using Scp1162.API;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
-namespace SCP1162.Handlers
+namespace Scp1162.Handlers
 {
     internal sealed class PlayerHandlers
     {
+        private HashSet<ItemType> _bannedItems;
+
+        internal PlayerHandlers(IEnumerable<ItemType> banned) => _bannedItems = banned.ToHashSet();
+
         public void OnPickingUpItem(PickingUpItemEventArgs ev)
         {
-            if (ev.Pickup.GameObject.IsPickup())
+            if (!ev.IsAllowed || ev.Player == null || ev.Pickup == null || ev.Player.IsHost || !ev.Pickup.IsScp1162())
             {
-                ev.IsAllowed = false;
-                if (ev.Player.CurrentItem.Type is ItemType.None || ev.Player.CurrentItem is null)
-                {
-                    ev.Player.EnableEffect(EffectType.Flashed, 1);
-                    ev.Player.EnableEffect(EffectType.SeveredHands);
-                    ev.Player.EnableEffect(EffectType.Traumatized);
-                    ev.Player.DisableEffect(EffectType.SeveredHands);
-
-                    ev.Player.Health = ev.Player.Health - 30;
-
-                    ev.Player.ShowHint("Вы протинули руку и вытинули случайный предмет");
-                    ev.Player.GiveRandomItem();
-                }
-                else
-                {
-                    ev.Player.CurrentItem.Destroy();
-                    ev.Player.ShowHint("Вы протинули руку и вытинули случайный предмет");
-                    ev.Player.GiveRandomItem();
-                }
+                return;
             }
+
+            ev.IsAllowed = false;
+
+            if ((ev.Player?.CurrentItem?.Type ?? ItemType.None) == ItemType.None)
+            {
+                ev.Player.EnableEffect(EffectType.Flashed, 1, 1);
+                ev.Player.EnableEffect(EffectType.SeveredHands);
+                ev.Player.EnableEffect(EffectType.Traumatized);
+                ev.Player.DisableEffect(EffectType.SeveredHands);
+
+                ev.Player.Health -= 30;
+
+                ev.Player.ShowHint("Вы протянули руку и вытянули случайный предмет");
+
+                ev.Player.CurrentItem = ev.Player.AddItem(SelectRandomItem());
+            }
+            else
+            {
+                ev.Player.RemoveHeldItem();
+
+                ev.Player.ShowHint("Вы протянули руку и вытянули случайный предмет");
+
+                ev.Player.CurrentItem = ev.Player.AddItem(SelectRandomItem());
+            }
+        }
+
+        private ItemType SelectRandomItem()
+        {
+            var array = Enum.GetValues(typeof(ItemType)).ToArray<ItemType>().ToList();
+
+            ItemType item;
+
+            do
+            {
+                item = array.GetRandomValue();
+            } while (item == ItemType.None || _bannedItems.Contains(item));
+
+            return item;
         }
     }
 }

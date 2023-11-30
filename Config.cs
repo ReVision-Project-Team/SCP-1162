@@ -1,16 +1,17 @@
 ﻿using Exiled.API.Interfaces;
 using System.Collections.Generic;
 
-namespace SCP1162
+namespace Scp1162
 {
-    public class Config : IConfig
+    public sealed class Config : IConfig
     {
         public bool IsEnabled { get; set; } = true;
+
         public bool Debug { get; set; } = false;
 
-        public List<ItemType> UnauthorizedItems = new List<ItemType>()
+        public List<ItemType> BannedItems { get; set; } = new ()
         {
-            ItemType.None, 
+            ItemType.None,
             ItemType.KeycardO5,
             ItemType.Jailbird,
             ItemType.Ammo12gauge,
@@ -18,7 +19,6 @@ namespace SCP1162
             ItemType.Ammo556x45,
             ItemType.Ammo762x39,
             ItemType.Ammo9x19,
-            ItemType.Marshmallow,
             ItemType.ArmorHeavy,
             ItemType.GunA7,
             ItemType.GunE11SR,

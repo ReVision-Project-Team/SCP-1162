@@ -7,8 +7,8 @@
     <ProjectGuid>{07DAC62C-0736-49F3-99EE-1D62EEB437C1}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SCP1162</RootNamespace>
-    <AssemblyName>SCP1162</AssemblyName>
+    <RootNamespace>Scp1162</RootNamespace>
+    <AssemblyName>Scp1162</AssemblyName>
     <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>

@@ -1,30 +1,31 @@
-﻿using SCP1162.API;
-using System.Linq;
+﻿using Exiled.API.Enums;
+using Exiled.API.Features;
+using Exiled.API.Features.Pickups;
+using Scp1162.API;
 using UnityEngine;
 
-namespace SCP1162.Handlers
+namespace Scp1162.Handlers
 {
     internal sealed class ServerHandlers
     {
         public void OnRoundStarted()
         {
-            Exiled.API.Features.Room _room = Exiled.API.Features.Room.List.FirstOrDefault(x => x.Type == Exiled.API.Enums.RoomType.Lcz173);
-            GameObject scp1162 = Exiled.API.Features.Items.Item.Create(ItemType.SCP500).CreatePickup(Vector3.zero).GameObject;
+            Extensions.Pickup = Pickup.CreateAndSpawn(ItemType.SCP500, Vector3.zero, default);
+            var obj = Extensions.Pickup.GameObject;
+            var rigidbody = obj.GetComponent<Rigidbody>();
 
-            scp1162.GetComponent<Rigidbody>().useGravity = false;
-            scp1162.GetComponent<Rigidbody>().drag = 0f;
-            scp1162.GetComponent<Rigidbody>().collisionDetectionMode = CollisionDetectionMode.Continuous;
-            scp1162.GetComponent<Rigidbody>().freezeRotation = true;
-            scp1162.GetComponent<Rigidbody>().detectCollisions = false;
+            rigidbody.useGravity = false;
+            rigidbody.drag = 0;
+            rigidbody.collisionDetectionMode = CollisionDetectionMode.Continuous;
+            rigidbody.freezeRotation = true;
+            rigidbody.detectCollisions = false;
 
-            scp1162.transform.parent = _room.transform;
-            scp1162.transform.localPosition = new Vector3(16.608f, 12.966f, 3.761f);
-            scp1162.transform.localRotation = Quaternion.Euler(90, 0, 0);
-            scp1162.transform.localScale = new Vector3(5, 5, 5);
+            obj.transform.SetParent(Room.Get(RoomType.Lcz173).transform);
+            obj.transform.localPosition = new Vector3(16.608f, 12.966f, 3.761f);
+            obj.transform.localRotation = Quaternion.Euler(90, 0, 0);
+            obj.transform.localScale = Vector3.one * 5;
 
-            scp1162.SetActive(true);
-
-            scp1162.SetPickup();
+            obj.SetActive(true);
         }
     }
 }
