@@ -2,10 +2,10 @@
 using System.Runtime.InteropServices;
 
 [assembly: AssemblyTitle("SCP-1162")]
-[assembly: AssemblyCompany("Timersky")]
+[assembly: AssemblyCompany("Timersky & NotAloneAgain")]
 [assembly: AssemblyProduct("SCP 1162")]
-[assembly: AssemblyCopyright("Copyright © Timersky 2023")]
-[assembly: AssemblyTrademark("Timersky")]
+[assembly: AssemblyCopyright("Copyright © Timersky & NotAloneAgain 2023")]
+[assembly: AssemblyTrademark("Timersky & NotAloneAgain")]
 
 [assembly: ComVisible(false)]
 
