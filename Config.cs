@@ -9,7 +9,7 @@ namespace Scp1162
 
         public bool Debug { get; set; } = false;
 
-        public List<ItemType> BannedItems { get; set; } = new ()
+        public List<ItemType> BannedItems { get; set; } = new List<ItemType>()
         {
             ItemType.None,
             ItemType.KeycardO5,
