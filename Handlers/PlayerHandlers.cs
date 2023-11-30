@@ -28,13 +28,10 @@ namespace Scp1162.Handlers
                 ev.Player.EnableEffect(EffectType.Flashed, 1, 1);
                 ev.Player.EnableEffect(EffectType.SeveredHands);
                 ev.Player.EnableEffect(EffectType.Traumatized);
-                ev.Player.DisableEffect(EffectType.SeveredHands);
 
                 ev.Player.Health -= 30;
 
-                ev.Player.ShowHint("Вы протянули руку и вытянули случайный предмет");
-
-                ev.Player.CurrentItem = ev.Player.AddItem(SelectRandomItem());
+                ev.Player.ShowHint("Вы протянули руку но не смогли её вытянуть");
             }
             else
             {

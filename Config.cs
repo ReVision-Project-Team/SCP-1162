@@ -20,6 +20,8 @@ namespace Scp1162
             ItemType.Ammo762x39,
             ItemType.Ammo9x19,
             ItemType.ArmorHeavy,
+            ItemType.ArmorLight,
+            ItemType.ArmorCombat,
             ItemType.GunA7,
             ItemType.GunE11SR,
             ItemType.GunAK,
