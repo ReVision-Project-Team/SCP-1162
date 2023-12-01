@@ -23,7 +23,7 @@ namespace Scp1162.Handlers
             obj.transform.SetParent(Room.Get(RoomType.Lcz173).transform);
             obj.transform.localPosition = new Vector3(16.608f, 12.966f, 3.761f);
             obj.transform.localRotation = Quaternion.Euler(90, 0, 0);
-            obj.transform.localScale = Vector3.one * 5;
+            obj.transform.localScale = Vector3.one * 5; //размер не изменяется.
 
             obj.SetActive(true);
         }
