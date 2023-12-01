@@ -10,7 +10,7 @@ namespace Scp1162.Handlers
     {
         public void OnRoundStarted()
         {
-            Extensions.Pickup = Pickup.CreateAndSpawn(ItemType.SCP500, Vector3.zero, default);
+            Extensions.Pickup = Pickup.CreateAndSpawn(ItemType.Coin, Vector3.zero, default);
             var obj = Extensions.Pickup.GameObject;
             var rigidbody = obj.GetComponent<Rigidbody>();
 

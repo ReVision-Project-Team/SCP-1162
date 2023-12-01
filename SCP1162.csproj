@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -7,8 +7,8 @@
     <ProjectGuid>{07DAC62C-0736-49F3-99EE-1D62EEB437C1}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Scp1162</RootNamespace>
-    <AssemblyName>Scp1162</AssemblyName>
+    <RootNamespace>SCP_1162</RootNamespace>
+    <AssemblyName>SCP 1162</AssemblyName>
     <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -57,6 +57,7 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
     <Reference Include="Teleports" HintPath="$(EXILED_REFERENCES)\Teleports.dll" />
+    <Reference Include="CoinFlipTeleport" HintPath="$(EXILED_REFERENCES)\CoinFlipTeleport.dll" />
     <Reference Include="UnityEngine.AnimationModule" HintPath="$(UNITY_REFERENCES)\UnityEngine.AnimationModule.dll" />
     <Reference Include="UnityEngine.AudioModule" HintPath="$(UNITY_REFERENCES)\UnityEngine.AudioModule.dll" />
     <Reference Include="UnityEngine.CoreModule" HintPath="$(UNITY_REFERENCES)\UnityEngine.CoreModule.dll" />

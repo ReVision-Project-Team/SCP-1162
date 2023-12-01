@@ -5,6 +5,7 @@ using Scp1162.API;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using CoinFlipTeleport.API;
 
 namespace Scp1162.Handlers
 {
@@ -22,6 +23,8 @@ namespace Scp1162.Handlers
             }
 
             ev.IsAllowed = false;
+
+            if (ev.Player.IsTeleporting()) return;
 
             if ((ev.Player?.CurrentItem?.Type ?? ItemType.None) == ItemType.None)
             {
